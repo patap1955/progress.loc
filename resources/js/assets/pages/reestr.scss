@@ -1,0 +1,57 @@
+.reestr {
+    &__header {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        @media screen and (min-width: 1390px) {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            @media screen and (min-width: 1390px) {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            @media screen and (min-width: 1390px) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                column-gap: 12px;
+            }
+
+            &-upload {
+                display: flex;
+                column-gap: 12px;
+            }
+        }
+    }
+
+    &__search {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @media screen and (min-width: 480px) {
+            display: flex;
+            flex-direction: row;
+        }
+
+        @media screen and (min-width: 1390px) {
+            display: flex;
+            justify-content: flex-end;
+            column-gap: 12px;
+        }
+
+    }
+}

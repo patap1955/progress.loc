@@ -1,0 +1,63 @@
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .25s ease;
+
+    &-primary {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        background-color: rgb(99 102 241);
+        color: #ffffff;
+        &:hover {
+            background-color: rgb(79 70 229);
+        }
+
+        & svg {
+            fill: currentColor;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &-default {
+        background-color: rgb(255 255 255);
+        color: rgb(100 116 139);
+
+        & svg {
+            fill: currentColor;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &-delete {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        color: rgb(244 63 94);
+
+        & svg {
+            fill: currentColor;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &-light {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        border: 1px solid rgb(226 232 240);
+        background-color: transparent;
+
+        & svg {
+            fill: currentColor;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}

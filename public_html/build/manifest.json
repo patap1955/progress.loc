@@ -1,0 +1,707 @@
+{
+  "_@vue-4e0f8084.js": {
+    "file": "assets/@vue-4e0f8084.js"
+  },
+  "_AppConfig-1af325d6.js": {
+    "file": "assets/AppConfig-1af325d6.js",
+    "imports": [
+      "_primevue-9f5135fd.js",
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js"
+    ]
+  },
+  "_CountryService-353aad24.js": {
+    "file": "assets/CountryService-353aad24.js"
+  },
+  "_NodeService-2dd984bb.js": {
+    "file": "assets/NodeService-2dd984bb.js"
+  },
+  "_ProductService-c3f21ab6.js": {
+    "file": "assets/ProductService-c3f21ab6.js"
+  },
+  "_axios-4d564c32.js": {
+    "file": "assets/axios-4d564c32.js"
+  },
+  "_primevue-9f5135fd.js": {
+    "dynamicImports": [
+      "node_modules/chart.js/auto/auto.esm.js"
+    ],
+    "file": "assets/primevue-9f5135fd.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ]
+  },
+  "_vue-b1509159.js": {
+    "file": "assets/vue-b1509159.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ]
+  },
+  "_vue-router-cc7c6ff3.js": {
+    "file": "assets/vue-router-cc7c6ff3.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ]
+  },
+  "_vue3-ui-preloader-f8d58604.js": {
+    "css": [
+      "assets/vue3-ui-preloader-d593322c.css"
+    ],
+    "file": "assets/vue3-ui-preloader-f8d58604.js",
+    "imports": [
+      "_vue-b1509159.js"
+    ]
+  },
+  "_vuex-9d7dbbbb.js": {
+    "file": "assets/vuex-9d7dbbbb.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ]
+  },
+  "node_modules/chart.js/auto/auto.esm.js": {
+    "file": "assets/chart.js-220b764d.js",
+    "isDynamicEntry": true,
+    "src": "node_modules/chart.js/auto/auto.esm.js"
+  },
+  "node_modules/primeicons/fonts/primeicons.eot": {
+    "file": "assets/primeicons-ce852338.eot",
+    "src": "node_modules/primeicons/fonts/primeicons.eot"
+  },
+  "node_modules/primeicons/fonts/primeicons.svg": {
+    "file": "assets/primeicons-5e10f102.svg",
+    "src": "node_modules/primeicons/fonts/primeicons.svg"
+  },
+  "node_modules/primeicons/fonts/primeicons.ttf": {
+    "file": "assets/primeicons-131bc3bf.ttf",
+    "src": "node_modules/primeicons/fonts/primeicons.ttf"
+  },
+  "node_modules/primeicons/fonts/primeicons.woff": {
+    "file": "assets/primeicons-90a58d3a.woff",
+    "src": "node_modules/primeicons/fonts/primeicons.woff"
+  },
+  "node_modules/primeicons/fonts/primeicons.woff2": {
+    "file": "assets/primeicons-3824be50.woff2",
+    "src": "node_modules/primeicons/fonts/primeicons.woff2"
+  },
+  "primeicons.css": {
+    "file": "assets/primeicons-06b15590.css",
+    "src": "primeicons.css"
+  },
+  "resources/js/assets/demo/flags/flags_responsive.png": {
+    "file": "assets/flags_responsive-2d565ac7.png",
+    "src": "resources/js/assets/demo/flags/flags_responsive.png"
+  },
+  "resources/js/main.css": {
+    "file": "assets/main-cda02ca2.css",
+    "src": "resources/js/main.css"
+  },
+  "resources/js/main.js": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg",
+      "assets/flags_responsive-2d565ac7.png"
+    ],
+    "css": [
+      "assets/main-cda02ca2.css",
+      "assets/primeicons-06b15590.css"
+    ],
+    "dynamicImports": [
+      "resources/js/views/uikit/FormLayout.vue",
+      "resources/js/views/uikit/Input.vue",
+      "resources/js/views/uikit/FloatLabel.vue",
+      "resources/js/views/uikit/InvalidState.vue",
+      "resources/js/views/uikit/Button.vue",
+      "resources/js/views/uikit/Table.vue",
+      "resources/js/views/uikit/List.vue",
+      "resources/js/views/uikit/Tree.vue",
+      "resources/js/views/uikit/Panels.vue",
+      "resources/js/views/uikit/Overlay.vue",
+      "resources/js/views/uikit/Media.vue",
+      "resources/js/views/uikit/Menu.vue",
+      "resources/js/views/uikit/menu/PersonalDemo.vue",
+      "resources/js/views/uikit/menu/SeatDemo.vue",
+      "resources/js/views/uikit/menu/PaymentDemo.vue",
+      "resources/js/views/uikit/menu/ConfirmationDemo.vue",
+      "resources/js/views/uikit/Messages.vue",
+      "resources/js/views/uikit/File.vue",
+      "resources/js/views/uikit/Chart.vue",
+      "resources/js/views/uikit/Misc.vue",
+      "resources/js/views/utilities/Blocks.vue",
+      "resources/js/views/utilities/Icons.vue",
+      "resources/js/views/pages/Timeline.vue",
+      "resources/js/views/pages/Empty.vue",
+      "resources/js/views/pages/Crud.vue",
+      "resources/js/views/utilities/Documentation.vue",
+      "resources/js/views/pages/Landing.vue",
+      "resources/js/views/pages/NotFound.vue",
+      "resources/js/views/pages/auth/Login.vue",
+      "resources/js/views/pages/auth/Access.vue",
+      "resources/js/views/pages/auth/Error.vue"
+    ],
+    "file": "assets/main-c12dcfba.js",
+    "imports": [
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vuex-9d7dbbbb.js",
+      "_vue-b1509159.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/main.js"
+  },
+  "resources/js/views/pages/Crud.vue": {
+    "file": "assets/Crud-eb381687.js",
+    "imports": [
+      "_primevue-9f5135fd.js",
+      "_ProductService-c3f21ab6.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/Crud.vue"
+  },
+  "resources/js/views/pages/Empty.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Empty-fa16f72e.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/Empty.vue"
+  },
+  "resources/js/views/pages/Landing.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Landing-6ba6e398.js",
+    "imports": [
+      "resources/js/main.js",
+      "_AppConfig-1af325d6.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/Landing.vue"
+  },
+  "resources/js/views/pages/NotFound.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/NotFound-ce22b21b.js",
+    "imports": [
+      "_AppConfig-1af325d6.js",
+      "_@vue-4e0f8084.js",
+      "_primevue-9f5135fd.js",
+      "resources/js/main.js",
+      "_vue-router-cc7c6ff3.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/NotFound.vue"
+  },
+  "resources/js/views/pages/Timeline.css": {
+    "file": "assets/Timeline-3ebd910e.css",
+    "src": "resources/js/views/pages/Timeline.css"
+  },
+  "resources/js/views/pages/Timeline.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/Timeline-3ebd910e.css",
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Timeline-710fb075.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/Timeline.vue"
+  },
+  "resources/js/views/pages/auth/Access.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Access-b85f962a.js",
+    "imports": [
+      "_AppConfig-1af325d6.js",
+      "_@vue-4e0f8084.js",
+      "_primevue-9f5135fd.js",
+      "resources/js/main.js",
+      "_vue-router-cc7c6ff3.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/auth/Access.vue"
+  },
+  "resources/js/views/pages/auth/Error.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Error-c9037899.js",
+    "imports": [
+      "_AppConfig-1af325d6.js",
+      "_@vue-4e0f8084.js",
+      "_primevue-9f5135fd.js",
+      "resources/js/main.js",
+      "_vue-router-cc7c6ff3.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/auth/Error.vue"
+  },
+  "resources/js/views/pages/auth/Login.css": {
+    "file": "assets/Login-9d6a008c.css",
+    "src": "resources/js/views/pages/auth/Login.css"
+  },
+  "resources/js/views/pages/auth/Login.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/Login-9d6a008c.css",
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Login-1e1021a4.js",
+    "imports": [
+      "_axios-4d564c32.js",
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/pages/auth/Login.vue"
+  },
+  "resources/js/views/uikit/Button.vue": {
+    "file": "assets/Button-474ec1fe.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Button.vue"
+  },
+  "resources/js/views/uikit/Chart.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Chart-c6be7433.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Chart.vue"
+  },
+  "resources/js/views/uikit/File.vue": {
+    "file": "assets/File-108ac61e.js",
+    "imports": [
+      "_primevue-9f5135fd.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/File.vue"
+  },
+  "resources/js/views/uikit/FloatLabel.vue": {
+    "file": "assets/FloatLabel-26f9d34d.js",
+    "imports": [
+      "_CountryService-353aad24.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/FloatLabel.vue"
+  },
+  "resources/js/views/uikit/FormLayout.vue": {
+    "file": "assets/FormLayout-c6aee232.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/FormLayout.vue"
+  },
+  "resources/js/views/uikit/Input.vue": {
+    "file": "assets/Input-ff4582e1.js",
+    "imports": [
+      "_CountryService-353aad24.js",
+      "_NodeService-2dd984bb.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Input.vue"
+  },
+  "resources/js/views/uikit/InvalidState.vue": {
+    "file": "assets/InvalidState-ca679309.js",
+    "imports": [
+      "_CountryService-353aad24.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/InvalidState.vue"
+  },
+  "resources/js/views/uikit/List.vue": {
+    "file": "assets/List-95eb3a1d.js",
+    "imports": [
+      "_ProductService-c3f21ab6.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/List.vue"
+  },
+  "resources/js/views/uikit/Media.vue": {
+    "file": "assets/Media-67bc145b.js",
+    "imports": [
+      "_ProductService-c3f21ab6.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Media.vue"
+  },
+  "resources/js/views/uikit/Menu.vue": {
+    "file": "assets/Menu-82b81927.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Menu.vue"
+  },
+  "resources/js/views/uikit/Messages.vue": {
+    "file": "assets/Messages-0c757505.js",
+    "imports": [
+      "_@vue-4e0f8084.js",
+      "_primevue-9f5135fd.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Messages.vue"
+  },
+  "resources/js/views/uikit/Misc.vue": {
+    "file": "assets/Misc-72b933ef.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Misc.vue"
+  },
+  "resources/js/views/uikit/Overlay.vue": {
+    "file": "assets/Overlay-2b28263a.js",
+    "imports": [
+      "_ProductService-c3f21ab6.js",
+      "_primevue-9f5135fd.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Overlay.vue"
+  },
+  "resources/js/views/uikit/Panels.vue": {
+    "file": "assets/Panels-7371bc01.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Panels.vue"
+  },
+  "resources/js/views/uikit/Table.css": {
+    "file": "assets/Table-be5088bd.css",
+    "src": "resources/js/views/uikit/Table.css"
+  },
+  "resources/js/views/uikit/Table.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/Table-be5088bd.css",
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Table-14c4488e.js",
+    "imports": [
+      "_primevue-9f5135fd.js",
+      "_ProductService-c3f21ab6.js",
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Table.vue"
+  },
+  "resources/js/views/uikit/Tree.vue": {
+    "file": "assets/Tree-def54c74.js",
+    "imports": [
+      "_NodeService-2dd984bb.js",
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/Tree.vue"
+  },
+  "resources/js/views/uikit/menu/ConfirmationDemo.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/ConfirmationDemo-789cfb3d.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/menu/ConfirmationDemo.vue"
+  },
+  "resources/js/views/uikit/menu/PaymentDemo.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/PaymentDemo-d8d1ce4d.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/menu/PaymentDemo.vue"
+  },
+  "resources/js/views/uikit/menu/PersonalDemo.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/PersonalDemo-3d9ae3a6.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/menu/PersonalDemo.vue"
+  },
+  "resources/js/views/uikit/menu/SeatDemo.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/SeatDemo-b161cb4d.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/uikit/menu/SeatDemo.vue"
+  },
+  "resources/js/views/utilities/Blocks.vue": {
+    "file": "assets/Blocks-23b8d921.js",
+    "imports": [
+      "_@vue-4e0f8084.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/utilities/Blocks.vue"
+  },
+  "resources/js/views/utilities/Documentation.css": {
+    "file": "assets/Documentation-3d64f3c8.css",
+    "src": "resources/js/views/utilities/Documentation.css"
+  },
+  "resources/js/views/utilities/Documentation.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/Documentation-3d64f3c8.css",
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Documentation-f49f7bfd.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/utilities/Documentation.vue"
+  },
+  "resources/js/views/utilities/Icons.css": {
+    "file": "assets/Icons-eeeff3f5.css",
+    "src": "resources/js/views/utilities/Icons.css"
+  },
+  "resources/js/views/utilities/Icons.vue": {
+    "assets": [
+      "assets/primeicons-ce852338.eot",
+      "assets/primeicons-3824be50.woff2",
+      "assets/primeicons-90a58d3a.woff",
+      "assets/primeicons-131bc3bf.ttf",
+      "assets/primeicons-5e10f102.svg"
+    ],
+    "css": [
+      "assets/Icons-eeeff3f5.css",
+      "assets/primeicons-06b15590.css"
+    ],
+    "file": "assets/Icons-15e2816a.js",
+    "imports": [
+      "resources/js/main.js",
+      "_@vue-4e0f8084.js",
+      "_vue-router-cc7c6ff3.js",
+      "_primevue-9f5135fd.js",
+      "_axios-4d564c32.js",
+      "_vue3-ui-preloader-f8d58604.js",
+      "_vue-b1509159.js",
+      "_vuex-9d7dbbbb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/utilities/Icons.vue"
+  },
+  "vue3-ui-preloader.css": {
+    "file": "assets/vue3-ui-preloader-d593322c.css",
+    "src": "vue3-ui-preloader.css"
+  }
+}

@@ -1,0 +1,48 @@
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    padding: 16px 32px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+
+    &__user {
+        position: relative;
+
+        &-info {
+            position: relative;
+            display: flex;
+            align-items: center;
+            column-gap: 9px;
+            cursor: pointer;
+
+            &-hidden {
+                display: none;
+                position: absolute;
+                padding: 8px;
+                background-color: #ffffff;
+                border: 1px solid #94A3B8FF;
+                border-radius: 4px;
+                --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.01);
+                --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -2px var(--tw-shadow-color);
+                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow);
+
+                &.active {
+                    display: block;
+                }
+            }
+        }
+        &-name {
+            font-weight: 500;
+            font-size: 14px;
+            color:  #1E293BFF;
+        }
+        &-svg {
+            width: 12px;
+            height: 12px;
+            fill: rgb(148 163 184);
+        }
+    }
+}

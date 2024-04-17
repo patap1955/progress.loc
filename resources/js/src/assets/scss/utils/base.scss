@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font;
+}
+/* Скролл бар */
+*{
+    scrollbar-width: thin;
+    scrollbar-color: rgb(71, 71, 71) rgba(108, 108, 108, 0.5);
+}
+*::-webkit-scrollbar {
+    height: 14px;
+    width: 10px;
+}
+*::-webkit-scrollbar-track{
+    background: rgba(108, 108, 108, 0.5);
+}
+*::-webkit-scrollbar-thumb{
+    background-color: rgb(136 136 136);
+    border-radius: 3px;
+    border: 10px solid rgb(136 136 136);
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    -webkit-overflow-x: hidden;
+    -moz-overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    -o-overflow-x: hidden;
+    background:  rgb(241 245 249);
+}
+
+body.lock {
+    overflow: hidden;
+}
+
+button {
+    cursor: pointer;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 256px auto;
+}
+
+.containers {
+    position: relative;
+    max-width: 1536px;
+    min-width: 100px;
+    margin: 0 auto;
+
+    @media (max-width: 1290px) {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    @media (max-width: 768px) {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+.animate__animated {
+    animation-timing-function: ease;
+}
+
+.animate__zoomIn {
+    animation-duration: .8s;
+}
+
+.animate__backInDown {
+    animation-duration: .8s;
+}
+
+.icon-title {
+    position: relative;
+    top: -25px;
+    right: 15px;
+}
+
+
