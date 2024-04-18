@@ -2,7 +2,7 @@
 
 namespace App\Http\Helpers;
 
-use App\Models\Fssp\LogSearch;
+use App\Models\LogSearch;
 use App\Models\Setting;
 use Illuminate\Support\Collection;
 
@@ -655,12 +655,11 @@ class Fssp
         return $result->message;
     }
 
-    public function request_a(){
+    public function request_a(){  
         $result = $this->request_b();
         if ($result->error == true || $result->error == 'true'){
-            $this->product_key = env('FSSP_PRODUCT_KEY');
             $token = $this->request_t();
-            if ($token->error == 'false') {
+            if ($token->error == 'false' || $token->error == false) {
                 $this->token = $token->token;
                 $token = Setting::all()->first();
                 $collection = new Collection(["token" => $this->token, "date" => date("d.m.Y")]);
@@ -668,7 +667,7 @@ class Fssp
             }
             $result = $this->request_b();
         }
-        return $result;
+        return $result;        
     }
 
     protected function request_b(){
@@ -694,6 +693,6 @@ class Fssp
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
         curl_close($ch);
-        return json_decode($result);
+        return json_decode($result);        
     }
 }

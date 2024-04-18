@@ -11,6 +11,7 @@ import Message from "@/views/pages/gospochta/Message.vue";
 import DownloadReportTime from "@/views/pages/gospochta/report/DownloadReportTime.vue";
 import DownloadReportDoc from "@/views/pages/gospochta/report/DownloadReportDoc.vue";
 import GetMail from "@/views/pages/gospochta/GetMail.vue";
+import UserIndex from "@/views/pages/users/UserIndex.vue";
 
 
 const routes = [
@@ -79,6 +80,14 @@ const routes = [
                 name: 'get-mail',
                 component: GetMail,
             },
+            {
+                path: '/users',
+                name: 'users',
+                component: UserIndex
+            },
+
+
+
 
 
 

@@ -13,4 +13,9 @@ class UserController extends Controller
         $user = User::with('role')->where('email', $email)->first();
         return UserResourse::make($user);
     }
+
+    public function getAllUsers()
+    {
+        return User::with('role')->get();
+    }
 }

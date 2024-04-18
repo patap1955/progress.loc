@@ -143,9 +143,24 @@ const model = ref([
         separator: true,
     },
     {
-        label: 'Пользователи',
+        label: 'Настройки',
         items: [
-
+            {
+                label: 'Пользователи',
+                icon: 'pi pi-fw pi-users',
+                items: [
+                    {
+                        label: 'Все пользователи',
+                        icon: 'pi pi-fw pi-server',
+                        to: '/users'
+                    },
+                    {
+                        label: 'Добавить пользователя',
+                        icon: 'pi pi-fw pi-user-plus',
+                        to: '/users/add'
+                    }
+                ],
+            }
         ],
     },
 ]);
@@ -161,8 +176,6 @@ const model = ref([
                     <i :class="item.icon" class="layout-menuitem-icon"></i>
                     <span @click="getMail">{{ item.label }}</span>
                 </div>
-<!--                <i :class="item.icon" class="layout-menuitem-icon"></i>-->
-<!--                <span @click="getMail">{{ item.label }}</span>-->
             </li>
         </template>
     </ul>
@@ -178,6 +191,5 @@ const model = ref([
   }
   .menu-separator span {
       cursor: pointer;
-      //margin-left: 1rem;
   }
 </style>

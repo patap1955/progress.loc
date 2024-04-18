@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/download-report-doc', [\App\Http\Controllers\Gospochta\DownloadReportController::class, 'downloadReportDoc']);
     Route::get('/report-docs', [\App\Http\Controllers\Gospochta\ReportDocsController::class, 'getDocs']);
 
+    Route::get('/users', [\App\Http\Controllers\Admin\UserController::class, 'getAllUsers']);
     Route::get('/user/{email}', [\App\Http\Controllers\Admin\UserController::class, 'getUser']);
     Route::get('/user/{messeges}', [\App\Http\Controllers\Admin\UserController::class, 'getUser']);
     Route::get('/get-balans', [\App\Http\Controllers\BalansController::class, 'getBalans']);
