@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Helpers;
+namespace App\Http\Fssp\Helpers;
 
 use App\Models\LogSearch;
 use App\Models\Setting;
@@ -655,7 +655,7 @@ class Fssp
         return $result->message;
     }
 
-    public function request_a(){  
+    public function request_a(){
         $result = $this->request_b();
         if ($result->error == true || $result->error == 'true'){
             $token = $this->request_t();
@@ -667,7 +667,7 @@ class Fssp
             }
             $result = $this->request_b();
         }
-        return $result;        
+        return $result;
     }
 
     protected function request_b(){
@@ -693,6 +693,6 @@ class Fssp
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
         curl_close($ch);
-        return json_decode($result);        
+        return json_decode($result);
     }
 }
