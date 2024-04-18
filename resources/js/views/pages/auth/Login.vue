@@ -63,7 +63,7 @@ export default {
                         <InputText id="email1" type="text" placeholder="Введите email" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
 
                         <label for="password1" class="block text-900 font-medium text-xl mb-2">Пароль</label>
-                        <Password id="password1" v-model="password" placeholder="Введите gfhjkm" :toggleMask="true" class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
+                        <Password id="password1" v-model="password" :feedback="false" placeholder="Введите пароль" :toggleMask="true" class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
 
                         <div class="flex align-items-center justify-content-between mb-5 gap-5">
                             <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Востановить пароль?</a>
