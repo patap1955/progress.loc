@@ -139,8 +139,15 @@ const model = ref([
     },
     {
         label: 'Получить почту',
+        icon: 'pi pi-fw pi-bookmark',
         separator: true,
-    }
+    },
+    {
+        label: 'Пользователи',
+        items: [
+
+        ],
+    },
 ]);
 </script>
 
@@ -150,19 +157,27 @@ const model = ref([
         <template v-for="(item, i) in model" :key="item">
             <app-menu-item v-if="!item.separator" :item="item" :index="i"></app-menu-item>
             <li v-if="item.separator" class="menu-separator">
-                <span @click="getMail">{{ item.label }}</span>
+                <div class="layout-menuitem-root-text">
+                    <i :class="item.icon" class="layout-menuitem-icon"></i>
+                    <span @click="getMail">{{ item.label }}</span>
+                </div>
+<!--                <i :class="item.icon" class="layout-menuitem-icon"></i>-->
+<!--                <span @click="getMail">{{ item.label }}</span>-->
             </li>
         </template>
-        <li>
-
-        </li>
     </ul>
 </template>
 
 <style lang="scss" scoped>
+
+  .menu-separator {
+      padding: 0.75rem 1rem;
+  }
+  .menu-separator i {
+      margin-right: 0.5rem;
+  }
   .menu-separator span {
       cursor: pointer;
-      margin-left: 1rem;
-      padding: 0.75rem 1rem 0.75rem 0;
+      //margin-left: 1rem;
   }
 </style>
