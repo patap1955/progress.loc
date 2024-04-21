@@ -21,4 +21,8 @@ export default class UserService {
     addUser(user) {
         return axios.post('/api/user/add', user)
     }
+
+    deleteUser(id) {
+        return axios.post('/api/user/delete/' +id)
+    }
 }

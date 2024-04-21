@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/get-all-roles', [\App\Http\Controllers\RoleController::class, 'getAllRoles']);
     Route::post('/user/update/{id}', [\App\Http\Controllers\Admin\UserController::class, 'update']);
     Route::post('/user/add', [\App\Http\Controllers\Admin\UserController::class, 'store']);
+    Route::post('/user/delete/{id}', [\App\Http\Controllers\Admin\UserController::class, 'destroy']);
 });
 
 Route::get('/regions', [\App\Http\Controllers\RegionsController::class, 'getRegions']);

@@ -57,9 +57,12 @@ export default {
                     let user = this.user;
                     user.role_id = this.user.role.id
                     userService.addUser(user).then(res => {
-                        if (res.errors) {
-                            console.log('log')
-                        }
+                        this.$toast.add({
+                            severity: 'success',
+                            summary: 'Успех',
+                            detail: 'Пользователь успешно добавлен!!!',
+                            life: 5000
+                        });
                     }).catch(err => {
                         if (err.response.data.errors.email) {
                             this.$toast.add({

@@ -15,6 +15,11 @@ export default {
         getAllUsers() {
             userService.getAllUsers().then((data) => {this.users = data});
         },
+        deleteUser(id) {
+            userService.deleteUser(id).then((data) => {
+                this.users = data.data
+            });
+        },
     }
 }
 </script>
@@ -40,7 +45,7 @@ export default {
                         <span class="p-button-icon p-button-icon-left pi pi-pencil" data-pc-section="icon"></span>
                         Редактировать
                     </router-link>
-                    <Button icon="pi pi-times" severity="danger" rounded aria-label="Удалить" />
+                    <Button icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id)"/>
                 </template>
             </Column>
         </DataTable>

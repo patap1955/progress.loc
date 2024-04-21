@@ -46,4 +46,12 @@ class UserController extends Controller
         }
         return $validated;
     }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+//        return $user;
+        $user->delete();
+        return User::with('role')->get();
+    }
 }
