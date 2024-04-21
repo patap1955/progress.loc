@@ -12,6 +12,8 @@ import DownloadReportTime from "@/views/pages/gospochta/report/DownloadReportTim
 import DownloadReportDoc from "@/views/pages/gospochta/report/DownloadReportDoc.vue";
 import GetMail from "@/views/pages/gospochta/GetMail.vue";
 import UserIndex from "@/views/pages/users/UserIndex.vue";
+import UserEdit from "@/views/pages/users/UserEdit.vue"
+import UserAdd from "@/views/pages/users/UserAdd.vue";
 
 
 const routes = [
@@ -84,6 +86,16 @@ const routes = [
                 path: '/users',
                 name: 'users',
                 component: UserIndex
+            },
+            {
+                path: '/users/edit/:id',
+                name: 'users-edit',
+                component: UserEdit
+            },
+            {
+                path: '/users/add',
+                name: 'users-add',
+                component: UserAdd
             },
 
 
