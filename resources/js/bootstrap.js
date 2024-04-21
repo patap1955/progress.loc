@@ -2,6 +2,7 @@ import loadash from 'lodash'
 window._ = loadash
 
 import * as Popper from '@popperjs/core'
+
 window.Popper = Popper
 
 import 'bootstrap'
@@ -22,6 +23,9 @@ import router from "@/router/router.js";
 //     }
 // })
 // window.axios.defaults.withXSRFToken = true;
+
+axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
