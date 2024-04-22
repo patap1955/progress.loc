@@ -11,6 +11,9 @@ export default {
             user: [],
             roles: [],
             selectedRole: null,
+            password: "",
+            passwordVert: "",
+
         }
     },
     created() {
@@ -27,53 +30,60 @@ export default {
         getAllRoles() {
             roleService.getAllRoles().then((data) => {this.roles = data});
         },
-        userRoleValueOption() {
-            let userRole = null;
-
-            console.log(this.roles)
-
-            this.roles.forEach((val) => {
-                console.log(val)
-                if (val.id === this.user.role.id) {
-                    userRole = val;
-                }
-            })
-            return this.selectedRole = userRole;
-        },
         updateUser() {
-            if (this.user.name === "") {
+            if (this.password !== "" && this.password === this.passwordVert) {
+                if (this.user.name === "") {
+                    this.$toast.add({
+                        severity: 'warn',
+                        summary: 'Предупреждение',
+                        detail: 'Заполните поле Имя',
+                        life: 5000
+                    });
+                }
+                if (this.user.email === "") {
+                    this.$toast.add({
+                        severity: 'warn',
+                        summary: 'Предупреждение',
+                        detail: 'Заполните поле Email',
+                        life: 5000
+                    });
+                }
+
+                if (this.user.name !== "" && this.user.email !== "") {
+                    let user = this.user;
+                    user.role_id = this.user.role.id
+                    if (this.password !== "") user.password = this.password
+                    userService.updateUser(user).then(res => {
+                        if (res.data.error === false) {
+                            this.user = res.data.user
+                            this.$toast.add({
+                                severity: 'success',
+                                summary: 'Успех',
+                                detail: 'Пользователь успешно изменен',
+                                life: 5000
+                            });
+                        } else {
+                            console.log(res)
+                        }
+
+                    }).catch(err => {
+                        if (err.response.data.errors.email) {
+                            this.$toast.add({
+                                severity: 'warn',
+                                summary: 'Предупреждение',
+                                detail: err.response.data.errors.email[0],
+                                life: 5000
+                            });
+                        }
+                        console.log(err.response.data)
+                    });
+                }
+            } else {
                 this.$toast.add({
                     severity: 'warn',
                     summary: 'Предупреждение',
-                    detail: 'Заполните поле Имя',
+                    detail: 'Введеные пароли не совпадают!!!',
                     life: 5000
-                });
-            }
-            if (this.user.email === "") {
-                this.$toast.add({
-                    severity: 'warn',
-                    summary: 'Предупреждение',
-                    detail: 'Заполните поле Email',
-                    life: 5000
-                });
-            }
-
-            if (this.user.name !== "" && this.user.email !== "") {
-                let user = this.user;
-                user.role_id = this.user.role.id
-                userService.updateUser(user).then(res => {
-                    if (res.data.error === false) {
-                        this.user = res.data.user
-                        this.$toast.add({
-                            severity: 'success',
-                            summary: 'Успех',
-                            detail: 'Пользователь успешно изменен',
-                            life: 5000
-                        });
-                    } else {
-                        console.log(res)
-                    }
-
                 });
             }
         },
@@ -110,6 +120,16 @@ export default {
                     <div class="field col-3">
                         <label for="email2">Роль</label>
                         <Dropdown v-model="user.role" :options="roles" optionLabel="name" placeholder="Выбрать роль" class="w-full md:w-14rem" />
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col-3">
+                        <label for="name2">Пароль</label>
+                        <Password v-model="password" toggleMask />
+                    </div>
+                    <div class="field col-3">
+                        <label for="email2">Подтвердите пароль</label>
+                        <Password v-model="passwordVert" :feedback="false" toggleMask />
                     </div>
                 </div>
             </div>

@@ -87,7 +87,7 @@ const requireConfirmation = (event) => {
     confirm.require({
         target: event.currentTarget,
         group: 'headless',
-        message: 'Save your current process?',
+        // message: 'Save your current process?',
         // accept: () => {
         //     toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
         // },

@@ -1,4 +1,4 @@
-.layout-sidebar {
+ .layout-sidebar {
     position: fixed;
     width: 300px;
     height: calc(100vh - 9rem);
@@ -79,7 +79,11 @@
 
             &.active-route {
                 font-weight: 700;
-                color: var(--primary-color);
+                //color: var(--primary-color);
+                color: #0daad1;
+            }
+            &.active-route i {
+                color: #40e0d0;
             }
 
             &:hover {

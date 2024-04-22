@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResourse;
 use App\Models\User;
@@ -25,16 +26,15 @@ class UserController extends Controller
         return UserResourse::make($user);
     }
 
-    public function update($id, Request $request)
+    public function update($id, EditUserRequest $request)
     {
         $user = User::find($id);
-        if ($user->update($request->all())) {
+        $validated = $request->safe()->all();
+        if ($user->update($validated)) {
             $newUser = User::with('role')->where('id', $id)->first();
             return ["error" => false, 'user' => $newUser];
         }
-        else {
-            return ["error" => true];
-        }
+        return $validated;
 
     }
 

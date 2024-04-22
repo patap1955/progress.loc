@@ -15,9 +15,31 @@ export default {
         getAllUsers() {
             userService.getAllUsers().then((data) => {this.users = data});
         },
-        deleteUser(id) {
-            userService.deleteUser(id).then((data) => {
-                this.users = data.data
+        deleteUser(id, position) {
+            this.$confirm.require({
+                group: 'positioned',
+                message: 'Вы уверены, что хотите продолжить?',
+                header: 'Подтверждение',
+                icon: 'pi pi-info-circle',
+                position: position,
+                rejectClass: 'p-button-secondary p-button-text',
+                acceptClass: 'p-button-text',
+                rejectLabel: 'Отменить',
+                acceptLabel: 'Подтвердить',
+                accept: () => {
+                    userService.deleteUser(id).then((data) => {
+                        this.users = data.data
+                        this.$toast.add({
+                            severity: 'success',
+                            summary: 'Успех',
+                            detail: 'Пользователь успешно удален!!!',
+                            life: 5000
+                        });
+                    });
+                },
+                reject: () => {
+                    this.$toast.add({ severity: 'error', summary: 'Отмена', detail: 'Удаление отменено', life: 5000 });
+                }
             });
         },
     }
@@ -25,6 +47,8 @@ export default {
 </script>
 
 <template>
+    <Toast />
+    <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
         <DataTable :value="users" tableStyle="min-width: 50rem">
             <template #header>
@@ -45,7 +69,7 @@ export default {
                         <span class="p-button-icon p-button-icon-left pi pi-pencil" data-pc-section="icon"></span>
                         Редактировать
                     </router-link>
-                    <Button icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id)"/>
+                    <Button icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id, 'top')"/>
                 </template>
             </Column>
         </DataTable>
