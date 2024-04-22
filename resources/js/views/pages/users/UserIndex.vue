@@ -5,15 +5,20 @@ export default {
     name: "UserIndex",
     data() {
         return {
-            users: []
+            users: [],
+            user: null,
         }
     },
     created() {
         this.getAllUsers();
+        this.authUser();
     },
     methods: {
         getAllUsers() {
             userService.getAllUsers().then((data) => {this.users = data});
+        },
+        authUser() {
+            this.user = JSON.parse(localStorage.getItem('user'))
         },
         deleteUser(id, position) {
             this.$confirm.require({
@@ -69,7 +74,7 @@ export default {
                         <span class="p-button-icon p-button-icon-left pi pi-pencil" data-pc-section="icon"></span>
                         Редактировать
                     </router-link>
-                    <Button icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id, 'top')"/>
+                    <Button v-if="user.id !== slotProps.data.id" icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id, 'top')"/>
                 </template>
             </Column>
         </DataTable>

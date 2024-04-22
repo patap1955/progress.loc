@@ -31,62 +31,69 @@ export default {
             roleService.getAllRoles().then((data) => {this.roles = data});
         },
         updateUser() {
-            if (this.password !== "" && this.password === this.passwordVert) {
-                if (this.user.name === "") {
-                    this.$toast.add({
-                        severity: 'warn',
-                        summary: 'Предупреждение',
-                        detail: 'Заполните поле Имя',
-                        life: 5000
-                    });
-                }
-                if (this.user.email === "") {
-                    this.$toast.add({
-                        severity: 'warn',
-                        summary: 'Предупреждение',
-                        detail: 'Заполните поле Email',
-                        life: 5000
-                    });
-                }
-
-                if (this.user.name !== "" && this.user.email !== "") {
-                    let user = this.user;
-                    user.role_id = this.user.role.id
-                    if (this.password !== "") user.password = this.password
-                    userService.updateUser(user).then(res => {
-                        if (res.data.error === false) {
-                            this.user = res.data.user
-                            this.$toast.add({
-                                severity: 'success',
-                                summary: 'Успех',
-                                detail: 'Пользователь успешно изменен',
-                                life: 5000
-                            });
-                        } else {
-                            console.log(res)
-                        }
-
-                    }).catch(err => {
-                        if (err.response.data.errors.email) {
-                            this.$toast.add({
-                                severity: 'warn',
-                                summary: 'Предупреждение',
-                                detail: err.response.data.errors.email[0],
-                                life: 5000
-                            });
-                        }
-                        console.log(err.response.data)
-                    });
-                }
+            if (this.password === "") {
+                this.axiosPostUser();
             } else {
-                this.$toast.add({
-                    severity: 'warn',
-                    summary: 'Предупреждение',
-                    detail: 'Введеные пароли не совпадают!!!',
-                    life: 5000
-                });
+                if (this.password === this.passwordVert) {
+                    if (this.user.name === "") {
+                        this.$toast.add({
+                            severity: 'warn',
+                            summary: 'Предупреждение',
+                            detail: 'Заполните поле Имя',
+                            life: 5000
+                        });
+                    }
+                    if (this.user.email === "") {
+                        this.$toast.add({
+                            severity: 'warn',
+                            summary: 'Предупреждение',
+                            detail: 'Заполните поле Email',
+                            life: 5000
+                        });
+                    }
+
+                    if (this.user.name !== "" && this.user.email !== "") {
+                        this.axiosPostUser();
+                    }
+                } else {
+                    this.$toast.add({
+                        severity: 'warn',
+                        summary: 'Предупреждение',
+                        detail: 'Введеные пароли не совпадают!!!',
+                        life: 5000
+                    });
+                }
             }
         },
+        axiosPostUser() {
+            let user = this.user;
+            user.role_id = this.user.role.id
+            if (this.password !== "") user.password = this.password
+            userService.updateUser(user).then(res => {
+                if (res.data.error === false) {
+                    this.user = res.data.user
+                    this.$toast.add({
+                        severity: 'success',
+                        summary: 'Успех',
+                        detail: 'Пользователь успешно изменен',
+                        life: 5000
+                    });
+                } else {
+                    console.log(res)
+                }
+
+            }).catch(err => {
+                if (err.response.data.errors.email) {
+                    this.$toast.add({
+                        severity: 'warn',
+                        summary: 'Предупреждение',
+                        detail: err.response.data.errors.email[0],
+                        life: 5000
+                    });
+                }
+                console.log(err.response.data)
+            });
+        }
     }
 }
 </script>

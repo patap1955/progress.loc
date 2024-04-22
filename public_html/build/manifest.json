@@ -2,8 +2,8 @@
   "_@vue-4e0f8084.js": {
     "file": "assets/@vue-4e0f8084.js"
   },
-  "_AppConfig-2f56abe8.js": {
-    "file": "assets/AppConfig-2f56abe8.js",
+  "_AppConfig-45210fce.js": {
+    "file": "assets/AppConfig-45210fce.js",
     "imports": [
       "_primevue-9f5135fd.js",
       "resources/js/main.js",
@@ -141,7 +141,7 @@
       "resources/js/views/pages/auth/Access.vue",
       "resources/js/views/pages/auth/Error.vue"
     ],
-    "file": "assets/main-c559c6ca.js",
+    "file": "assets/main-8ed926a5.js",
     "imports": [
       "_@vue-4e0f8084.js",
       "_vue-router-cc7c6ff3.js",
@@ -175,7 +175,7 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Empty-5313a3c0.js",
+    "file": "assets/Empty-5ee03343.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -200,10 +200,10 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Landing-b754a006.js",
+    "file": "assets/Landing-ab70cae9.js",
     "imports": [
       "resources/js/main.js",
-      "_AppConfig-2f56abe8.js",
+      "_AppConfig-45210fce.js",
       "_@vue-4e0f8084.js",
       "_vue-router-cc7c6ff3.js",
       "_primevue-9f5135fd.js",
@@ -226,9 +226,9 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/NotFound-9cc8dfe5.js",
+    "file": "assets/NotFound-5d3730d6.js",
     "imports": [
-      "_AppConfig-2f56abe8.js",
+      "_AppConfig-45210fce.js",
       "_@vue-4e0f8084.js",
       "_primevue-9f5135fd.js",
       "resources/js/main.js",
@@ -257,7 +257,7 @@
       "assets/Timeline-3ebd910e.css",
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Timeline-0cf4fe24.js",
+    "file": "assets/Timeline-b03f3a33.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -282,9 +282,9 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Access-ab29d366.js",
+    "file": "assets/Access-fb337e2d.js",
     "imports": [
-      "_AppConfig-2f56abe8.js",
+      "_AppConfig-45210fce.js",
       "_@vue-4e0f8084.js",
       "_primevue-9f5135fd.js",
       "resources/js/main.js",
@@ -308,9 +308,9 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Error-8269af04.js",
+    "file": "assets/Error-74ea4733.js",
     "imports": [
-      "_AppConfig-2f56abe8.js",
+      "_AppConfig-45210fce.js",
       "_@vue-4e0f8084.js",
       "_primevue-9f5135fd.js",
       "resources/js/main.js",
@@ -339,7 +339,7 @@
       "assets/Login-62760ca8.css",
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Login-9af428f6.js",
+    "file": "assets/Login-65d790a1.js",
     "imports": [
       "_axios-4d564c32.js",
       "resources/js/main.js",
@@ -372,7 +372,7 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Chart-e3983008.js",
+    "file": "assets/Chart-366c6734.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -508,7 +508,7 @@
       "assets/Table-be5088bd.css",
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Table-704f0c54.js",
+    "file": "assets/Table-a931bc72.js",
     "imports": [
       "_primevue-9f5135fd.js",
       "_ProductService-c3f21ab6.js",
@@ -543,7 +543,7 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/ConfirmationDemo-0ab556fb.js",
+    "file": "assets/ConfirmationDemo-0c13ac4a.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -568,7 +568,7 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/PaymentDemo-5d8c4eba.js",
+    "file": "assets/PaymentDemo-d84fa428.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -593,7 +593,7 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/PersonalDemo-4c3ed939.js",
+    "file": "assets/PersonalDemo-700387d6.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -618,7 +618,7 @@
     "css": [
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/SeatDemo-29858f58.js",
+    "file": "assets/SeatDemo-41a5a178.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -656,7 +656,7 @@
       "assets/Documentation-3d64f3c8.css",
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Documentation-96e1c5ce.js",
+    "file": "assets/Documentation-b8ec58ec.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
@@ -686,7 +686,7 @@
       "assets/Icons-eeeff3f5.css",
       "assets/primeicons-06b15590.css"
     ],
-    "file": "assets/Icons-b2f390cb.js",
+    "file": "assets/Icons-53492045.js",
     "imports": [
       "resources/js/main.js",
       "_@vue-4e0f8084.js",
