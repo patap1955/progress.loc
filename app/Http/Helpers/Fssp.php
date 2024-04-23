@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Fssp\Helpers;
+namespace App\Http\Helpers;
 
 use App\Models\LogSearch;
 use App\Models\Setting;

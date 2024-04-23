@@ -160,6 +160,22 @@ const model = ref([
                         to: '/users/add'
                     }
                 ],
+            },
+            {
+                label: 'Доступы',
+                icon: 'pi pi-fw pi-users',
+                items: [
+                    {
+                        label: 'Роли',
+                        icon: 'pi pi-fw pi-server',
+                        to: '/settings/roles'
+                    },
+                    {
+                        label: 'Права',
+                        icon: 'pi pi-fw pi-user-plus',
+                        to: '/settings/permissions'
+                    }
+                ],
             }
         ],
     },

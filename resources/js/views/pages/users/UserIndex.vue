@@ -74,7 +74,8 @@ export default {
                         <span class="p-button-icon p-button-icon-left pi pi-pencil" data-pc-section="icon"></span>
                         Редактировать
                     </router-link>
-                    <Button v-if="user.id !== slotProps.data.id" icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id, 'top')"/>
+                    <Button v-if="user.id !== slotProps.data.id" icon="pi pi-trash" label="Удалить" severity="danger" @click="deleteUser(slotProps.data.id, 'top')" />
+<!--                    <Button v-if="user.id !== slotProps.data.id" icon="pi pi-times" severity="danger" rounded aria-label="Удалить" @click="deleteUser(slotProps.data.id, 'top')"/>-->
                 </template>
             </Column>
         </DataTable>

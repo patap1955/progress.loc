@@ -45,10 +45,14 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/user/edit/{id}', [\App\Http\Controllers\Admin\UserController::class, 'getUserEdit']);
     Route::get('/user/{messeges}', [\App\Http\Controllers\Admin\UserController::class, 'getUser']);
     Route::get('/get-balans', [\App\Http\Controllers\BalansController::class, 'getBalans']);
-    Route::get('/get-all-roles', [\App\Http\Controllers\RoleController::class, 'getAllRoles']);
     Route::post('/user/update/{id}', [\App\Http\Controllers\Admin\UserController::class, 'update']);
     Route::post('/user/add', [\App\Http\Controllers\Admin\UserController::class, 'store']);
     Route::post('/user/delete/{id}', [\App\Http\Controllers\Admin\UserController::class, 'destroy']);
+
+    Route::get('/get-all-roles', [\App\Http\Controllers\RoleController::class, 'getAllRoles']);
+    Route::get('/get-role/{id}', [\App\Http\Controllers\RoleController::class, 'getRole']);
+    Route::post('/role/update/{id}', [\App\Http\Controllers\RoleController::class, 'update']);
+    Route::post('/role/add', [\App\Http\Controllers\RoleController::class, 'store']);
 });
 
 Route::get('/regions', [\App\Http\Controllers\RegionsController::class, 'getRegions']);

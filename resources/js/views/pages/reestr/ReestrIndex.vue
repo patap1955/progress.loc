@@ -16,7 +16,7 @@ export default {
             selectedProduct: null,
             metaKey: true,
 
-            products: null,
+            products: [],
             expandedRows: [],
             filters: null,
 

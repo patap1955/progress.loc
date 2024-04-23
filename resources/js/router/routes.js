@@ -14,6 +14,10 @@ import GetMail from "@/views/pages/gospochta/GetMail.vue";
 import UserIndex from "@/views/pages/users/UserIndex.vue";
 import UserEdit from "@/views/pages/users/UserEdit.vue"
 import UserAdd from "@/views/pages/users/UserAdd.vue";
+import RolesIndex from "@/views/pages/roles/RolesIndex.vue";
+import PermissionsIndex from "@/views/pages/permissions/PermissionsIndex.vue";
+import RoleEdit from "@/views/pages/roles/RoleEdit.vue";
+import RoleAdd from "@/views/pages/roles/RoleAdd.vue";
 
 
 const routes = [
@@ -96,6 +100,26 @@ const routes = [
                 path: '/users/add',
                 name: 'users-add',
                 component: UserAdd
+            },
+            {
+                path: "/settings/roles",
+                name: 'roles',
+                component: RolesIndex
+            },
+            {
+                path: "/settings/role/edit/:id",
+                name: 'role-edit',
+                component: RoleEdit
+            },
+            {
+                path: "/settings/role/add",
+                name: 'role-add',
+                component: RoleAdd
+            },
+            {
+                path: "/settings/permissions",
+                name: 'permissions',
+                component: PermissionsIndex
             },
 
 
