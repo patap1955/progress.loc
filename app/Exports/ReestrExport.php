@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Reestr;
+use App\Models\Fssp\Reestr;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 

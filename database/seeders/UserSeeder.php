@@ -15,13 +15,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $developer = Role::where('slug','admin')->first();
-        $manager = Role::where('slug', 'moderator')->first();
+        $developer = Role::where('slug','super_admin')->first();
+        $manager = Role::where('slug', 'admin')->first();
 
         $user1 = new User();
         $user1->name = 'Денис';
         $user1->email = 'admin@arconix-tech.ru';
         $user1->password = bcrypt('123456');
+        $user1->role_id = 1;
         $user1->save();
         $user1->roles()->attach($developer);
 
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
         $user2->name = 'Михаил';
         $user2->email = 'slobodchikov1985@yandex.ru';
         $user2->password = bcrypt('123456');
+        $user2->role_id = 2;
         $user2->save();
         $user2->roles()->attach($manager);
     }

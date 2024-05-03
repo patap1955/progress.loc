@@ -1,14 +1,18 @@
 <script setup>
-import { computed, watch, ref } from 'vue';
+import { computed, watch, ref, onMounted, onBeforeUpdate, reactive } from 'vue';
 import AppTopbar from './AppTopbar.vue';
 import AppFooter from './AppFooter.vue';
 import AppSidebar from './AppSidebar.vue';
 import AppConfig from './AppConfig.vue';
 import { useLayout } from '@/layout/composables/layout';
+import UserService from "@/service/UserService.js";
 
+const userService = new UserService();
 const { layoutConfig, layoutState, isSidebarActive } = useLayout();
 
 const outsideClickListener = ref(null);
+const authTimeSession = ref(60000 * 60);
+const sessionTime = ref(null);
 
 watch(isSidebarActive, (newVal) => {
     if (newVal) {
@@ -17,7 +21,6 @@ watch(isSidebarActive, (newVal) => {
         unbindOutsideClickListener();
     }
 });
-
 const containerClass = computed(() => {
     return {
         'layout-theme-light': layoutConfig.darkTheme.value === 'light',
@@ -30,6 +33,42 @@ const containerClass = computed(() => {
         'p-ripple-disabled': layoutConfig.ripple.value === false
     };
 });
+
+onBeforeUpdate(() => {
+    console.log('hello')
+    setInterval(userAuthTime(true), 1000)
+});
+onMounted(() => {
+    // console.log(process.end(VITE_SESSION_USER_TIME))
+    setInterval(userAuthTime, 1000);
+    window.addEventListener('beforeunload', handleBeforeUnload);
+});
+const userAuthTime = (time = false) => {
+    if (time) {
+        authTimeSession.value = 60000 * 60
+        authTimeSession.value = authTimeSession.value - 1000
+    }
+
+    authTimeSession.value = authTimeSession.value - 1000
+    window.addEventListener('mousemove', (e) => {
+        authTimeSession.value = 60000 * 60
+    })
+
+    console.log(authTimeSession.value);
+
+    if (authTimeSession.value === 0) {
+        localStorage.removeItem('x-xsrf-token')
+        localStorage.removeItem('user')
+        window.location.replace("/");
+    }
+
+}
+
+const handleBeforeUnload = (event) => {
+    localStorage.removeItem('x-xsrf-token')
+    localStorage.removeItem('user')
+    window.location.replace("/");
+}
 const bindOutsideClickListener = () => {
     if (!outsideClickListener.value) {
         outsideClickListener.value = (event) => {

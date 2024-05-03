@@ -1,10 +1,11 @@
 <script>
 import DownloadReportService from "@/service/DownloadReportService.js";
-import ReportDocService from "@/service/ReportDocService.js";
+// import ReportDocService from "@/service/ReportDocService.js";
+import GosmailReportService from "@/service/GosmailReportService.js";
 // import Repo
 
 const downloadReportService = new  DownloadReportService();
-const reportDocService = new ReportDocService();
+const gosmailReportService = new GosmailReportService();
 export default {
     name: "DownloadReportDoc",
     data() {
@@ -12,7 +13,7 @@ export default {
             dateStart: null,
             dateEnd: null,
             selectedDoc: null,
-            docs: null,
+            docs: [],
         }
     },
     mounted() {
@@ -39,7 +40,7 @@ export default {
 
         },
         getDocs() {
-            reportDocService.getDocs().then((data) => (this.docs = data));
+            gosmailReportService.getReports().then((data) => (this.docs = data));
         }
     }
 }

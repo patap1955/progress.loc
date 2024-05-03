@@ -13,24 +13,19 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
+        $superAdmin = new Role();
+        $superAdmin->name = 'Супер админ';
+        $superAdmin->slug = 'super_admin';
+        $superAdmin->save();
+
         $admin = new Role();
         $admin->name = 'Администратор';
         $admin->slug = 'admin';
         $admin->save();
 
-        $moderator = new Role();
-        $moderator->name = 'Модератор';
-        $moderator->slug = 'moderator';
-        $moderator->save();
-
-        $manager = new Role();
-        $manager->name = 'Менеджер';
-        $manager->slug = 'manager';
-        $manager->save();
-
-        $legal = new Role();
-        $legal->name = 'Юрист';
-        $legal->slug = 'legal';
-        $legal->save();
+        $user = new Role();
+        $user->name = 'Пользователь';
+        $user->slug = 'user';
+        $user->save();
     }
 }

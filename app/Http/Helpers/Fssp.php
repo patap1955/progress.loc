@@ -62,6 +62,9 @@ class Fssp
             $this->ip = $_SERVER['REMOTE_ADDR'];
         }
         $this->product_key = env('FSSP_PRODUCT_KEY');
+        if (is_null($this->product_key)){
+            $this->product_key = $this->get_config('FSSP_PRODUCT_KEY');
+        }
         $settings = Setting::all()->first();
         if (!is_null($settings->token)) {
             $this->token = json_decode($settings->token)->token;
@@ -694,5 +697,28 @@ class Fssp
         $result = curl_exec($ch);
         curl_close($ch);
         return json_decode($result);
+    }
+
+    protected function get_config($value = 'FSSP_PRODUCT_KEY'){        
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].'/../.env')){
+            $stroke = '';
+            $word = '';
+            $f = fopen($_SERVER['DOCUMENT_ROOT'].'/../.env','r');
+            while (!feof($f))
+            {
+                $stroke = fgets($f);
+                $pos = mb_strpos($stroke, $value);
+                if ($pos !== false){
+                    $stroke = str_replace(array("\r", "\n", "\"", $value.'='), '', $stroke);
+                    fclose($f);
+                    return $stroke;
+                }
+            }
+            fclose($f);
+            return null;
+        }else{
+            return null;
+        }
+        $config = file_get_contents('../../../.env');
     }
 }

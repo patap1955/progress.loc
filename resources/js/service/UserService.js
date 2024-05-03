@@ -1,5 +1,12 @@
 import axios from "axios";
 export default class UserService {
+    auth() {
+        return  fetch('/api/user-auth', {
+            method: 'GET',
+
+        })
+            .then((res) => res.json())
+    }
     getAllUsers() {
         return  fetch('/api/users', {
             method: 'GET',

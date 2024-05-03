@@ -3,12 +3,16 @@
 
 namespace App\Http\Helpers;
 
+use App\Exports\ExportReport;
+
 use App\Models\LogSearch;
 use App\Models\Setting;
 use App\Models\Gospochta\File;
 use App\Models\Gospochta\Log;
 use App\Models\Gospochta\Message;
 use App\Models\Gospochta\Sender;
+
+use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Support\Collection;
 
@@ -20,6 +24,7 @@ class Gosmail
     protected $token;
     protected $token_date = "";
     protected $settimeout = 15;
+    protected $file_types = array();
 
 
     public function __construct ()
@@ -33,6 +38,9 @@ class Gosmail
             $this->ip = $_SERVER['REMOTE_ADDR'];
         }
         $this->product_key = env('APP_PRODUCT_KEY');
+        if (is_null($this->product_key)){
+            $this->product_key = $this->get_config('FSSP_PRODUCT_KEY');
+        }
         $settings = Setting::all()->first();
         if (!is_null($settings->token)) {
             $this->token = json_decode($settings->token)->token;
@@ -106,11 +114,6 @@ class Gosmail
                         $find = 1; 
                     }
                 }
-                /*
-                if ($find == 1){
-                    break;
-                }
-                */
                 $message = Message::orderBy('id', 'desc')->first();
                 if($message){
                     $feed_id = $message->feed_id;
@@ -184,6 +187,7 @@ class Gosmail
                                         $file = new File();
                                         $file->message_id = $message->id;
                                         $file->sender_id = $message->sender_id;
+                                        $file->type = $this->get_fyle_type($_SERVER['DOCUMENT_ROOT'].'/uploads/files/'.$message->sender_id.'/'.$message->id.'/'.$file_name);
                                         $file->url = $file_url;
                                         $file->original_name = $original_name;
                                         $file->file_name = $file_name;
@@ -225,6 +229,7 @@ class Gosmail
                                         $file = new File();
                                         $file->message_id = $message->id;
                                         $file->sender_id = $message->sender_id;
+                                        $file->type = $this->get_fyle_type($_SERVER['DOCUMENT_ROOT'].'/uploads/files/'.$message->sender_id.'/'.$message->id.'/'.$file_name);
                                         $file->url = $file_url;
                                         $file->original_name = $original_name;
                                         $file->file_name = $file_name;
@@ -294,6 +299,7 @@ class Gosmail
                                         $file = new File();
                                         $file->message_id = $message->id;
                                         $file->sender_id = $message->sender_id;
+                                        $file->type = $this->get_fyle_type($_SERVER['DOCUMENT_ROOT'].'/uploads/files/'.$message->sender_id.'/'.$message->id.'/'.$file_name);
                                         $file->url = $file_url;
                                         $file->original_name = $original_name;
                                         $file->file_name = $file_name;
@@ -335,6 +341,7 @@ class Gosmail
                                         $file = new File();
                                         $file->message_id = $message->id;
                                         $file->sender_id = $message->sender_id;
+                                        $file->type = $this->get_fyle_type($_SERVER['DOCUMENT_ROOT'].'/uploads/files/'.$message->sender_id.'/'.$message->id.'/'.$file_name);
                                         $file->url = $file_url;
                                         $file->original_name = $original_name;
                                         $file->file_name = $file_name;
@@ -393,6 +400,7 @@ class Gosmail
                                                 $file = new File();
                                                 $file->message_id = $message->id;
                                                 $file->sender_id = $message->sender_id;
+                                                $file->type = $this->get_fyle_type($_SERVER['DOCUMENT_ROOT'].'/uploads/files/'.$message->sender_id.'/'.$message->id.'/'.$file_name);
                                                 $file->url = $file_url;
                                                 $file->original_name = $original_name;
                                                 $file->file_name = $file_name;
@@ -642,6 +650,50 @@ class Gosmail
         return true;
     }
 
+    protected function get_fyle_type($filename){
+        $result = null;
+        $extension = pathinfo($filename)['extension'];
+        if (strtolower($extension) == 'xml'){
+            $xml = file_get_contents($filename);
+            if (strpos($xml, 'fssp')){
+                if (count($this->file_types) == 0){
+                    $params = array('func'=>'get_doc_types', 'token' => $this->token, 'ip' => $this->ip);
+                    $a_url = $this->api_url . '?' . http_build_query($params);
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $a_url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                    curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+                    curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    $headers = array();
+                    $headers[] = "User-Agent: ".$_SERVER['HTTP_USER_AGENT'];
+                    $headers[] = "Accept: */*";
+                    $headers[] = "Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3";
+                    $headers[] = "Connection: keep-alive";
+                    $headers[] = "Referer: ".$_SERVER['SERVER_NAME'];
+                    $headers[] = "Sec-Fetch-Dest: script";
+                    $headers[] = "Sec-Fetch-Mode: no-cors";
+                    $headers[] = "Sec-Fetch-Site: same-site";
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    $result = curl_exec($ch);
+                    curl_close($ch);
+                    $result = json_decode($result);
+                    if ($result->error === false || $result->error === 'false') {
+                        $this->file_types = $result->data;
+                    }
+                }
+                foreach ($this->file_types as $value) {
+                    if(strpos($xml, $value[1]) !== false){
+                        return $value[1];
+                    }            
+                }
+            }
+        }
+        return $result;        
+    }
+
     protected function gen_uuid() {
         return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
             mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
@@ -652,4 +704,158 @@ class Gosmail
         );
     }
 
+    protected function get_config($value = 'FSSP_PRODUCT_KEY'){        
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].'/../.env')){
+            $stroke = '';
+            $word = '';
+            $f = fopen($_SERVER['DOCUMENT_ROOT'].'/../.env','r');
+            while (!feof($f))
+            {
+                $stroke = fgets($f);
+                $pos = mb_strpos($stroke, $value);
+                if ($pos !== false){
+                    $stroke = str_replace(array("\r", "\n", "\"", $value.'='), '', $stroke);
+                    fclose($f);
+                    return $stroke;
+                }
+            }
+            fclose($f);
+            return null;
+        }else{
+            return null;
+        }
+        $config = file_get_contents('../../../.env');
+    }
+
+    protected function request_r($report) {
+        $params = array('func'=>'get_form_types', 'token' => $this->token, 'ip' => $this->ip, 'form' => $report);
+        $a_url = $this->api_url . '?' . http_build_query($params);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $a_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $headers = array();
+        $headers[] = "User-Agent: ".$_SERVER['HTTP_USER_AGENT'];
+        $headers[] = "Accept: */*";
+        $headers[] = "Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3";
+        $headers[] = "Connection: keep-alive";
+        $headers[] = "Referer: ".$_SERVER['SERVER_NAME'];
+        $headers[] = "Sec-Fetch-Dest: script";
+        $headers[] = "Sec-Fetch-Mode: no-cors";
+        $headers[] = "Sec-Fetch-Site: same-site";
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $result = json_decode($result);
+        return $result;
+    }  
+
+    protected function request_f($report) {
+        $params = array('func'=>'get_forms', 'token' => $this->token, 'ip' => $this->ip, 'form' => $report);
+        $a_url = $this->api_url . '?' . http_build_query($params);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $a_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $headers = array();
+        $headers[] = "User-Agent: ".$_SERVER['HTTP_USER_AGENT'];
+        $headers[] = "Accept: */*";
+        $headers[] = "Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3";
+        $headers[] = "Connection: keep-alive";
+        $headers[] = "Referer: ".$_SERVER['SERVER_NAME'];
+        $headers[] = "Sec-Fetch-Dest: script";
+        $headers[] = "Sec-Fetch-Mode: no-cors";
+        $headers[] = "Sec-Fetch-Site: same-site";
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $result = json_decode($result);
+        return $result;
+    }  
+
+    public function get_reports_files($dataStart, $dataEnd, $report=1){
+        $result = $this->request_r($report);
+        if ($result->error === true || $result->error === 'true'){
+            $result = $this->request_t();
+            if ($result->error === false || $result->error === 'false') {
+                $this->token = $result->token;
+                $token = Setting::all()->first();
+                $collection = new Collection(["token" => $this->token, "date" => date("d.m.Y")]);
+                $token->update(["token" => $collection->toJson()]);
+            }
+            if ($result->error === true || $result->error === 'true'){
+                abort(403);
+                die;    
+            }else{
+                $result = $this->request_r($report);
+            }
+        }
+        if ($result->error === false || $result->error === 'false') {
+            $data = $result->data;
+            $files = null;
+            if (count($data)>0){
+                $files = File::whereIn('type', $data);
+            }else{
+                $files = File::whereNotNull('type');
+            }
+            $files->where('created_at','>',$dataStart);
+            $files->where('created_at','<',$dataEnd);
+            $files = $files->get();
+            $collection = array();
+            $result = $this->request_f($report);        
+            if ($result->error === false || $result->error === 'false') {
+                $line = array('№ п/п','Период выгрузки','Дата поступления документа');
+                $data = $result->data;
+                foreach ($data as $dat) {
+                    array_push($line, $dat[0]);
+                }
+                array_push($collection, $line);
+                $count = 1;
+                for ($i=0; $i<count($files); $i++){
+                    $file = $files[$i];
+                    $line = array($i+1,'С '.$dataStart.' по '.$dataEnd, date('d-m-Y', strtotime($file->created_at)));
+                    $xml = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/uploads/files/'.$file->sender_id.'/'.$file->message_id.'/'.$file->file_name);
+                    $fnd=0;
+                    foreach ($data as $dat) {
+                        if ($fnd==0){
+                            if (is_array($dat[1])){
+                                foreach ($dat[1] as $dt) {                                    
+                                    if (mb_strpos($xml, $dt[0])){
+                                        array_push($line, $dt[1]);
+                                        array_push($line, $dt[2]);
+                                        $fnd=1;
+                                        break;
+                                    }
+                                }
+                                if ($fnd==0){
+                                    array_push($line, '');
+                                    array_push($line, '');
+                                }
+                            }else{
+                                $word = '';
+                                if (mb_strpos($xml, $dat[1])){
+                                    $word = mb_substr($xml, mb_strpos($xml, $dat[1])+mb_strlen($dat[1]), mb_strpos($xml, str_replace('<', '</', $dat[1])) - (mb_strpos($xml, $dat[1])+mb_strlen($dat[1])));
+                                }
+                                array_push($line, $word);
+                            }
+                        }else{
+                            $fnd=0;
+                        }
+                    }
+                    array_push($collection, $line);
+                }
+            }
+        }
+        dd($collection);
+        return Excel::download(new ExportReport($collection), 'report_'.$report.' '.date("d.m.y h:i:s").'.xlsx');
+    }
+    
 }

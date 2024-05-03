@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('/user-auth', [\App\Http\Controllers\Admin\UserController::class, 'userAuth']);
     // roters fssp module
     Route::get('/', [\App\Http\Controllers\Fssp\ReestrController::class, 'index']);
     Route::post('/reestr-import', [\App\Http\Controllers\Fssp\ReestrController::class, 'reestrImport']);
@@ -30,6 +31,16 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/search-the-reestr', [\App\Http\Controllers\Fssp\ReestrController::class, 'searchTheReestr']);
     Route::get('/download-file/{id}', [\App\Http\Controllers\Gospochta\FileController::class, 'download']);
     Route::post('/get-mail', [\App\Http\Controllers\Gospochta\GetMailController::class, 'getMail']);
+
+    Route::get('/regions', [\App\Http\Controllers\RegionsController::class, 'getRegions']);
+
+// roters fssp module
+    Route::get('/docs', [\App\Http\Controllers\Fssp\DocsController::class, 'getDocs']);
+    Route::get('/search-by-ip', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByIp']);
+    Route::get('/search-by-inn', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByInn']);
+    Route::get('/search-by-id', [\App\Http\Controllers\Fssp\FsspController::class, 'searchById']);
+    Route::get('/search-by-fl', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByFl']);
+    Route::get('/search-by-ul', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByUl']);
 
     // router gospochta
     Route::get('/senders', [\App\Http\Controllers\Gospochta\SendersController::class, 'index']);
@@ -53,14 +64,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/get-role/{id}', [\App\Http\Controllers\RoleController::class, 'getRole']);
     Route::post('/role/update/{id}', [\App\Http\Controllers\RoleController::class, 'update']);
     Route::post('/role/add', [\App\Http\Controllers\RoleController::class, 'store']);
+
+    Route::get('/permissions', [\App\Http\Controllers\PermissionController::class, 'getAll']);
+    Route::get('/get_gosmail_reports', [\App\Http\Controllers\Gospochta\GosmailController::class, 'getReports']);
 });
 
-Route::get('/regions', [\App\Http\Controllers\RegionsController::class, 'getRegions']);
-
-// roters fssp module
-Route::get('/docs', [\App\Http\Controllers\Fssp\DocsController::class, 'getDocs']);
-Route::get('/search-by-ip', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByIp']);
-Route::get('/search-by-inn', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByInn']);
-Route::get('/search-by-id', [\App\Http\Controllers\Fssp\FsspController::class, 'searchById']);
-Route::get('/search-by-fl', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByFl']);
-Route::get('/search-by-ul', [\App\Http\Controllers\Fssp\FsspController::class, 'searchByUl']);

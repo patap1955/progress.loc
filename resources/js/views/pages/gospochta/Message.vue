@@ -7,7 +7,7 @@ export default {
     name: "Message",
     data() {
         return {
-            message: null,
+            message: [],
         }
     },
     created() {
@@ -42,7 +42,7 @@ export default {
                             <a class="card__docs-item-link" :href="'/api/download-file/' + file.id">
                                 <span class="card__docs-item-left card-text">
                                     <span class="icon-file icon-file-PDF">PDF</span>
-                                    <span class="card__docs-item-left-file">{{ file.file_name }}</span>
+                                    <span class="card__docs-item-left-file">{{ file.original_name }}</span>
                                 </span>
                                 <span class="card__docs-item-right card-link">Скачать</span>
                             </a>

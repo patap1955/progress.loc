@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function userAuth()
+    {
+        return ['answer' =>  true];
+    }
     public function getUser($email) {
         $user = User::with('role')->where('email', $email)->first();
         return UserResourse::make($user);

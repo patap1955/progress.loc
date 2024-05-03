@@ -22,7 +22,7 @@ import router from "@/router/router.js";
 //         router.push({name: 'login'})
 //     }
 // })
-// window.axios.defaults.withXSRFToken = true;
+window.axios.defaults.withXSRFToken = true;
 
 axios.defaults.withCredentials = true;
 axios.defaults.withXSRFToken = true;

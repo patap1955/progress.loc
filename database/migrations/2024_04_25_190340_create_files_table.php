@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->json('value')->nullable();
+            $table->integer('message_id');
+            $table->integer('sender_id');
+            $table->string('type')->default(null)->nullable();
+            $table->string('url')->default(null)->nullable();
+            $table->string('original_name');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('files');
     }
 };

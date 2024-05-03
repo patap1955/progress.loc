@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\Reestr;
+use App\Models\Fssp\Reestr;
 use App\Models\Fssp\Fssp_reestr_fields;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;

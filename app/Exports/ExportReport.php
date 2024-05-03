@@ -11,8 +11,8 @@ class ExportReport implements FromCollection
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function collection()
+    public function collection($collection = array())
     {
-        return  new Collection(Message::all());
+        return  new Collection($collection);
     }
 }
